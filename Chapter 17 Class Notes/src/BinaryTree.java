@@ -1,5 +1,5 @@
 /**
-    A binary tree in which each node has two children.
+    A binary tree in which each node has at most two children.
 */
 public class BinaryTree
 {
