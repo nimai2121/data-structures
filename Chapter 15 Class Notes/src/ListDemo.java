@@ -90,12 +90,14 @@ public class ListDemo
 
         /* CAN'T add or remove anything from the list without the iterator? */
 
-        for (String n: staff) { 
+        /* for (String n: staff) { 
             if (n.equals("Tony")) {
                 staff.add("T'Challa");
             }
         }
 
         System.out.println(staff);
+
+        */
     }
 }
