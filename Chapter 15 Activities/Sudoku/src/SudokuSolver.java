@@ -35,7 +35,15 @@ public class SudokuSolver {
             System.out.println("Cannot open: " + fileName);
         }
 
+        
         // create the list of sets for each row (this.rows)
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                private Set<Integer> losRow = new HashSet<>(this.grid[i][j]); 
+                //rows.add();
+            }
+            
+        }
         // ...
 
         // create the list of sets for each col (this.cols)
@@ -106,7 +114,7 @@ public class SudokuSolver {
 
         // try each possible number
         for (Integer possibleNum : possibleNums) {
-            // update the grid and all three corresponding sets with possibleNum
+            // update the grid and all three corresponding sets with possibleNum //add to all 3 sets
             // ...
 
             // recursively solve the board
