@@ -133,6 +133,9 @@ public class SudokuSolver {
         // create a hash set for [1..9] (this.nums)
         // ...
 
+        
+
+
         // visually inspect that all the sets are correct
         for (int row = 0; row < N; row++) {
             System.out.println("row " + row + ": " + this.rows.get(row));
