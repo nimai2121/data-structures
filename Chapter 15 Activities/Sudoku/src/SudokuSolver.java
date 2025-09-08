@@ -13,6 +13,8 @@ public class SudokuSolver {
 
     public SudokuSolver(String fileName) {
         // read the puzzle file
+        System.out.println(System.getProperty("user.dir"));
+
         try (Scanner in = new Scanner(new File(fileName))) {
 
             this.grid = new int[N][N];
@@ -35,19 +37,62 @@ public class SudokuSolver {
             System.out.println("Cannot open: " + fileName);
         }
 
-        
+        Set<Integer> losRow = new HashSet<>();
+        rows = new ArrayList<>();
+        //losRow.size[N];
+       //System.out.println(grid);
         // create the list of sets for each row (this.rows)
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                private Set<Integer> losRow = new HashSet<>(this.grid[i][j]); 
-                //rows.add();
+        for (int i = 0; i < N; i++) { 
+             //put each row in a set and then put it in a list. 
+            for (int j = 0; j < N; j++) {  
+                losRow.add(this.grid[i][j]);
+
+                System.out.print(losRow);
+                //rows.add(losRow);
+                //System.out.println();
             }
+            rows.add(losRow);
+            System.out.println(losRow);
+
+            losRow = new HashSet<>();
+            
+            
+
+            //System.out.println(rows);
+            
             
         }
+        
         // ...
 
         // create the list of sets for each col (this.cols)
         // ...
+        Set<Integer> losCol = new HashSet<>();
+        cols = new ArrayList<>();
+
+        for (int i = 0; i < N; i++) { 
+             //put each row in a set and then put it in a list. 
+            for (int j = 0; j < N; j++) {  
+
+                losCol.add(this.grid[j][i]);
+
+                System.out.print(losCol);
+                //rows.add(losRow);
+                //System.out.println();
+            }
+            cols.add(losCol);
+            System.out.println(losCol);
+
+            losCol = new HashSet<>();
+            
+            
+
+            //System.out.println(rows);
+            
+            
+        }
+
+
 
         // create the list of sets for each square (this.squares)
         /* the squares are added to the list row-by-row:
@@ -56,6 +101,34 @@ public class SudokuSolver {
             6 7 8
          */
         // ...
+
+        Set<Integer> losSqu = new HashSet<>();
+        squares = new ArrayList<>();
+
+        for (int i = 0; i < M; i++) { 
+             //put each row in a set and then put it in a list. 
+            for (int j = 0; j < M; j++) {  
+
+                losSqu.add(this.grid[i][j]);
+
+                System.out.print(losSqu);
+                //rows.add(losRow);
+                //System.out.println();
+            }
+            squares.add(losSqu);
+            System.out.println(losSqu);
+
+            losSqu = new HashSet<>();
+            
+            
+
+            //System.out.println(rows);
+            
+            
+        }
+
+
+        
 
         // create a hash set for [1..9] (this.nums)
         // ...
@@ -149,7 +222,7 @@ public class SudokuSolver {
     }
 
     public static void main(String[] args) {
-        String fileName = "src/puzzle1.txt";
+        String fileName = "Chapter 15 Activities/Sudoku/src/puzzle1.txt";
 
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
