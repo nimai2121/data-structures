@@ -43,6 +43,7 @@ public class SudokuSolver {
        //System.out.println(grid);
         // create the list of sets for each row (this.rows)
         for (int i = 0; i < N; i++) { 
+            losRow = new HashSet<>();
              //put each row in a set and then put it in a list. 
             for (int j = 0; j < N; j++) {  
                 losRow.add(this.grid[i][j]);
@@ -54,7 +55,7 @@ public class SudokuSolver {
             this.rows.add(losRow);
             //System.out.println(losRow);
 
-            losRow = new HashSet<>();
+            //losRow = new HashSet<>();
             
             
 
@@ -67,16 +68,17 @@ public class SudokuSolver {
 
         // create the list of sets for each col (this.cols)
         // ...
-        Set<Integer> losCol = new HashSet<>();
+        //Set<Integer> losCol = new HashSet<>();
         this.cols = new ArrayList<>();
 
         for (int j = 0; j < N; j++) { 
              //put each row in a set and then put it in a list. 
+            Set<Integer> losCol = new HashSet<>();
             for (int i = 0; i < N; i++) {  
 
                 losCol.add(this.grid[i][j]);
 
-                System.out.print(losCol);
+                //System.out.print(losCol);
                 //rows.add(losRow);
                 //System.out.println();
             }
@@ -241,8 +243,8 @@ public class SudokuSolver {
     }
 
     public static void main(String[] args) {
-        // String fileName = "Chapter 15 Activities/Sudoku/src/puzzle1.txt";
-        String fileName = "data-structures/Chapter 15 Activities/Sudoku/src/puzzle1.txt"; //PERSONAL HOME USE
+        String fileName = "Chapter 15 Activities/Sudoku/src/puzzle1.txt";
+        //String fileName = "data-structures/Chapter 15 Activities/Sudoku/src/puzzle1.txt"; //PERSONAL HOME USE
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
         if (solver.solve()) {
