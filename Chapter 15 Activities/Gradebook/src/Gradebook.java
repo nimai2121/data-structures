@@ -38,14 +38,21 @@ public class Gradebook
                System.out.println("What's the student's name that you want to remove?");
                String name = in.next();
                Set<String> keys = names.keySet();
-              
+               boolean noStudent = true;
                 for (String n: keys) {
                     if (n.equals(name)) {
                         names.remove(n);
-                    } else {
+                        noStudent = false;
+                        break;
+                    
+                    
+                    } //else {
+                    //    System.out.println("Student not found!");
+                    //}
+                }
+                if (noStudent) {
                         System.out.println("Student not found!");
                     }
-                }
 
                
                // . . .
@@ -61,7 +68,9 @@ public class Gradebook
                     if (n.equals(name)) {
                         System.out.println("What's the student's new grade?");
                         String grade = in.next();
+                        //names.remove(n);
                         names.put(n, grade);
+                        break;
                     } else {
                         System.out.println("Student not found!");
                     }
