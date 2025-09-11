@@ -1,5 +1,8 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-. . .
+import java.util.Set;
+//. . .
 /**
  * A program to add, remove, modify or print
  * student names and grades.
@@ -9,8 +12,8 @@ public class Gradebook
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-
-        . . .
+        Map<String, String> names = new HashMap<>();
+        //. . .
 
         boolean done = false;
         while(!done)
@@ -22,17 +25,55 @@ public class Gradebook
                 done = true;
             } else if (input.equals("A"))
             {
-                . . .
+               // . . .
+               System.out.println("What's the student's name?");
+               String nameOfStudent = in.next();
+               //System.out.println();
+               System.out.println("What's the student's grade?");
+               String grade = in.next();
+               names.put(nameOfStudent, grade);
 
             } else if (input.equals("R"))
             {
-                . . .
+               System.out.println("What's the student's name that you want to remove?");
+               String name = in.next();
+               Set<String> keys = names.keySet();
+              
+                for (String n: keys) {
+                    if (n.equals(name)) {
+                        names.remove(n);
+                    } else {
+                        System.out.println("Student not found!");
+                    }
+                }
+
+               
+               // . . .
             } else if (input.equals("M"))
             {
-                . . .
+
+               System.out.println("What's the student's name that you want to edit the grades for?");
+               String name = in.next();
+               
+               Set<String> keys = names.keySet();
+              
+                for (String n: keys) {
+                    if (n.equals(name)) {
+                        System.out.println("What's the student's new grade?");
+                        String grade = in.next();
+                        names.put(n, grade);
+                    } else {
+                        System.out.println("Student not found!");
+                    }
+                }
+               // . . .
             } else if (input.equalsIgnoreCase("P"))
             {
-                . . .
+                Set<String> keys = names.keySet();
+                for (String key: keys) {
+                    System.out.println(key + ": " + names.get(key));
+                }
+
             } else
             {
                 done = true;
