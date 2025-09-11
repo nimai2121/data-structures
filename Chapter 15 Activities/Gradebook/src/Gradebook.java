@@ -63,15 +63,18 @@ public class Gradebook
                String name = in.next();
                
                Set<String> keys = names.keySet();
-              
+              boolean noStudent = true;
                 for (String n: keys) {
                     if (n.equals(name)) {
                         System.out.println("What's the student's new grade?");
                         String grade = in.next();
                         //names.remove(n);
-                        names.put(n, grade);
-                        break;
-                    } else {
+                        names.put(n, grade); 
+                        noStudent = false;
+                       
+                    }
+                    
+                    if(noStudent) {
                         System.out.println("Student not found!");
                     }
                 }
