@@ -18,22 +18,26 @@ public class FirstLetterMap
         {
 
             // Create your map here
-            ...
+            Map<Character, String> map = new HashMap<>();
 
             while (in.hasNext())
             {
                 String word = clean(in.next());
                 Character c = word.charAt(0);
 
+                map.put(c, word);
+
+                
+
                 // Update the map here
                 // Use the Java 8 merge method
-                . . .
+                //. . .
 
             }
 
             // Print the map here in this form
             // a: [a, able, aardvark]
-            . . .
+           // . . .
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
