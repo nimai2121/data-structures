@@ -12,7 +12,8 @@ public class StringLengthMap2
 {
     public static void main(String[] args) throws FileNotFoundException
     {
-        String filename = "Chapter 15 Activities/StringLengthMap/src/test1.txt";
+        String filename = "data-structures/Chapter 15 Activities/StringLengthMap/src/test1.txt";
+        //String filename = "Chapter 15 Activities/StringLengthMap/src/test1.txt";
         System.out.println(System.getProperty("user.dir"));
 
         try (Scanner in = new Scanner(new File(filename)))
@@ -27,21 +28,16 @@ public class StringLengthMap2
                 String word = clean(in.next());
                 Integer len = word.length();
 
-                map.merge(len, 1, (oldValue, notPresentValue) -> 1 + len);
-                if (len == null) {
-                    len = 1; 
-                } else {
-                    len++;
-                }
+                map.merge(len, word, (oldVal, newVal) -> oldVal + ", " + newVal);
 
                 // Update the map here
-                map.put(len, word);
+                // map.put(len, word);
                 // Modify Worked Example 15.1
                 
             }
 
             for (Integer key: map.keySet()) {
-                System.out.println(key - 1 + " " + map.get(key));
+                System.out.println(key + " " + map.get(key));
             }
 
             // Print the strings, in increasing order of their length

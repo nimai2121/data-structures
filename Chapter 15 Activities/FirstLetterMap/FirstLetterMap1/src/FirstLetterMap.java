@@ -12,11 +12,12 @@ public class FirstLetterMap
 {
     public static void main(String[] args)
     {
-        String filename = "src/test1.txt";
-
+        System.out.println(System.getProperty("user.dir"));
+        //String filename = "src/test1.txt";
+        String filename = "data-structures/Chapter 15 Activities/FirstLetterMap/FirstLetterMap1/src/test1.txt";
+        
         try (Scanner in = new Scanner(new File(filename)))
         {
-
             // Create your map here
             Map<Character, String> map = new HashMap<>();
 
@@ -27,7 +28,11 @@ public class FirstLetterMap
 
                 map.put(c, word);
 
-                
+                if ((map.get(c) != null) && (!map.get(c).contains(word))) {
+                    map.put(c, map.get(c) + ", " + word);
+                } else {
+                    map.put(c, word);
+                }
 
                 // Update the map here
                 // Use the Java 8 merge method
@@ -38,6 +43,10 @@ public class FirstLetterMap
             // Print the map here in this form
             // a: [a, able, aardvark]
            // . . .
+           for (Character key: map.keySet()) {
+                System.out.println(key + " " + map.get(key));
+            }
+
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);

@@ -8,17 +8,20 @@ import java.io.*;
  * alphabetical order. Update the map by modifying
  * Worked Example 15.1.
 */
-public class FirstLetterMap
+public class FirstLetterMap2
 {
     public static void main(String[] args)
     {
-        String filename = "src/test1.txt";
+        //String filename = "src/test1.txt";
+        String filename = "data-structures/Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
+        
 
         try (Scanner in = new Scanner(new File(filename)))
         {
+            Map<Character, Set<String>> map = new HashMap<>();
 
             // Create your map here
-            ...
+            //...
 
             while (in.hasNext())
             {
@@ -27,14 +30,26 @@ public class FirstLetterMap
 
                 // Update the map here
                 // Modify Worked Example 15.1
-                . . .
+                //Use the Java 8 merge method
+                map.merge(c, new HashSet<>(Arrays.asList(word)), (oldSet, newSet) -> { 
+                    oldSet.addAll(newSet);
+                    return oldSet;
+                }); 
+
+                //map.merge(c, word, (oldVal, newVal) -> oldVal + ", " + newVal);
+                
+
 
 
             }
 
             // Print the map here in this form
             // a: [a, able, aardvark]
-            . . .
+           // . . .
+            for (Character key: map.keySet()) {
+                System.out.println(key + " " + map.get(key));
+            }
+
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
