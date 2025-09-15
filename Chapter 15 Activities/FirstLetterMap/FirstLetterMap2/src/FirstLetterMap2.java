@@ -12,8 +12,9 @@ public class FirstLetterMap2
 {
     public static void main(String[] args)
     {
-        //String filename = "src/test1.txt";
-        String filename = "data-structures/Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
+        String filename = "Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
+        System.out.println(System.getProperty("user.dir"));
+        //String filename = "data-structures/Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
         
 
         try (Scanner in = new Scanner(new File(filename)))

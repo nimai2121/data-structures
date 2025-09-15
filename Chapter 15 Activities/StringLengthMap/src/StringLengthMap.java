@@ -13,7 +13,7 @@ public class StringLengthMap
     public static void main(String[] args) throws FileNotFoundException
     {
         //String filename = "Chapter 15 Activities/StringLengthMap/src/test1.txt";
-        String filename = "data-structures/Chapter 15 Activities/StringLengthMap/src/test1.txt";
+        String filename = "Chapter 15 Activities/StringLengthMap/src/test1.txt";
         System.out.println(System.getProperty("user.dir"));
 
         try (Scanner in = new Scanner(new File(filename)))
