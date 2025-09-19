@@ -14,7 +14,8 @@ public class ToDoList
 {
     // Instance variable(s)
     //. . .
-    Queue<String> tasks = new PriorityQueue<>();
+    PriorityQueue<Task> tasks;
+    
 
     /**
      * Constructor
@@ -23,6 +24,7 @@ public class ToDoList
     {
         // Complete this
         //. . .
+        tasks = new PriorityQueue<>();
     }
 
     /**
@@ -62,13 +64,33 @@ public class ToDoList
     public void addTask(String optionStr)
     {
         // Complete this method
-        //. . .
-        switch (optionStr) {
-            case "add":
-                int priority;
-                //tasks.add(new WorkOrder(priority, choice)
-                break;
-        }
+        String[] pieces = optionStr.split(" ", 3);
+
+        
+
+        if (pieces[1].length() != 1) {
+             System.out.println("The priority must be an integer between 1 and 9.");
+             return;
+        } 
+
+        int priority = Integer.parseInt(pieces[1]);
+        String description = (pieces[2]);
+        
+            tasks.add(new Task(priority, description));
+        
+
+        
+
+        
+
+        /*if (optionStr.substring(optionStr.indexOf(" ") + 1) == "b") {
+            System.out.println("The priority must be an integer between 1 and 9.");
+        } else {
+            tasks.add(new WorkOrder(Integer.parseInt(optionStr.substring(optionStr.indexOf(" ") + 1, optionStr.indexOf(" ") + 2)), optionStr));
+        }*/
+
+        
+
             
             
     }
@@ -83,6 +105,9 @@ public class ToDoList
         
         // Complete this method
        // . . .
+       if (tasks.size()> 0) {
+            next = tasks.remove();
+       }
         
         
         if (next == null)
