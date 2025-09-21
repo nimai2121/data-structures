@@ -17,15 +17,43 @@ public class HTMLChecker
 {
     public static void main(String[] args)
     {
-        String filename = "src/TagSample1.html";
+        //System.out.println(System.getProperty("user.dir"));
+        String filename = "data-structures/Chapter 15 Activities/HTMLChecker/src/TagSample1.html";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
             // Your code goes here
-            . . .
+            //...
+            
 
+            Stack<String> tagStack = new Stack<>();
+            while (in.hasNext())
+            {
+                String token = in.next();
+                if (token.startsWith("<") && !token.startsWith("</"))
+                {
+                    // Opening tag
+                    tagStack.push(token);
+                }
+                else if (token.startsWith("</"))
+                {
+                    // Closing tag
+                    if (tagStack.isEmpty() || !tagStack.pop().equals(token.replace("/", "")))
+                    {
+                        System.out.println("Unmatched closing tag: " + token);
+                    }
+                }
+            }
 
-        } catch (FileNotFoundException e)
+            if (!tagStack.isEmpty())
+            {
+                System.out.println("Unmatched opening tags: " + tagStack);
+            } else {
+                System.out.println("All tags are properly nested.");
+            }
+
+        }
+        catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
         }
