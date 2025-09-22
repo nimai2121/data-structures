@@ -5,6 +5,8 @@ public class Grid
     int[][] pixels = new int[SIZE][SIZE];
     //. . .
 
+    
+
     /**
      * Flood fill, starting with the given row and column.
     */
