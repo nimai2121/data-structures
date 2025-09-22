@@ -18,7 +18,8 @@ public class HTMLChecker
     public static void main(String[] args)
     {
         //System.out.println(System.getProperty("user.dir"));
-        String filename = "data-structures/Chapter 15 Activities/HTMLChecker/src/TagSample1.html";
+        //String filename = "data-structures/Chapter 15 Activities/HTMLChecker/src/TagSample1.html";
+        String filename = "Chapter 15 Activities/HTMLChecker/src/TagSample1.html";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
@@ -29,18 +30,18 @@ public class HTMLChecker
             Stack<String> tagStack = new Stack<>();
             while (in.hasNext())
             {
-                String token = in.next();
-                if (token.startsWith("<") && !token.startsWith("</"))
+                String tag = in.next();
+                if (tag.startsWith("<") && !tag.startsWith("</"))
                 {
                     // Opening tag
-                    tagStack.push(token);
+                    tagStack.push(tag);
                 }
-                else if (token.startsWith("</"))
+                else if (tag.startsWith("</"))
                 {
                     // Closing tag
-                    if (tagStack.isEmpty() || !tagStack.pop().equals(token.replace("/", "")))
+                    if (tagStack.isEmpty() || !tagStack.pop().equals(tag.replace("/", "")))
                     {
-                        System.out.println("Unmatched closing tag: " + token);
+                        System.out.println("Unmatched closing tag: " + tag);
                     }
                 }
             }
