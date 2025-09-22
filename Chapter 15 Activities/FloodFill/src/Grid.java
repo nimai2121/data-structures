@@ -9,7 +9,14 @@ public class Grid
     */
     public void floodfill(int row, int column)
     {
-       // . . .
+       
+    
+        //. . .
+        for (int r = row; r < SIZE; r++) {
+            for (int c = column; c < SIZE; c++) {
+                pixels[r][c] = 0;
+            }
+        }
        
     }
 
