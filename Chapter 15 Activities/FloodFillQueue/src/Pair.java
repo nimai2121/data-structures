@@ -18,4 +18,9 @@ public class Pair
     {
         return col;
     }
+
+    /* public String toString()
+    {
+        return "(" + row + ", " + col + ")";
+    }*/
 }
