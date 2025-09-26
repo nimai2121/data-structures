@@ -87,6 +87,17 @@ public class LinkedList
         return new LinkedListIterator();
     }
 
+    public String toString() {
+        ListIterator listIterator = listIterator();
+
+        String allElements = "[";
+
+        while (listIterator.hasNext()) {
+            allElements += listIterator.next() + ", ";
+        }
+
+        return allElements + "]";
+    }
 
 
 
@@ -227,6 +238,8 @@ public class LinkedList
             }
 
             position.data = element;
+            // we don't have to do reset isAfterNext because the 
+            // structure of the list has not changed
         }
 
 
