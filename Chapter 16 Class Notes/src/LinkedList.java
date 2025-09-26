@@ -221,6 +221,14 @@ public class LinkedList
             @param element the element to set
         */
 
+        public void set(Object element) {
+            if (!isAfterNext) {
+                throw new IllegalStateException(); 
+            }
+
+            position.data = element;
+        }
+
 
     }//LinkedListIterator
 }//LinkedList
