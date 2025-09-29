@@ -43,14 +43,15 @@ public class LinkedList
     {
         // ...
         //contains(obj.data, obj);
-        for (int i = 0; i < currentSize; i++) {
+        /*for (int i = 0; i < currentSize; i++) {
             
             if (get(i).equals(obj)) {
                 return true;
             }
         }
 
-        return false;
+        return false; */
+        return contains(first, obj);
         
     }
 
@@ -68,8 +69,14 @@ public class LinkedList
             return false; 
         } else {
             //return contains(obj);
-            return contains(start.next, obj);
+
+            if (start.data.equals(obj)) {
+                return true;
+            }
+        
         }
+
+        return contains(start.next, obj);
 
     }
 
