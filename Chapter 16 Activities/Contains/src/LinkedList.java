@@ -42,6 +42,16 @@ public class LinkedList
     public boolean contains(Object obj)
     {
         // ...
+        //System.out.println(currentSize);
+
+        for (int i = 0; i < currentSize; i++) {
+            
+            if (get(i).equals(obj)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
