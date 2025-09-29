@@ -27,5 +27,7 @@ public class ListTester
         System.out.print((names.contains("Tom") ? "true" : "false"));
         System.out.println();
         System.out.println("Expected: true");
+
+        //System.out.println("Test");
     }
 }

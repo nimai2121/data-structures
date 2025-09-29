@@ -42,6 +42,16 @@ public class LinkedList
     public boolean contains(Object obj)
     {
         // ...
+        //contains(obj.data, obj);
+        for (int i = 0; i < currentSize; i++) {
+            
+            if (get(i).equals(obj)) {
+                return true;
+            }
+        }
+
+        return false;
+        
     }
 
     /**
@@ -52,6 +62,15 @@ public class LinkedList
     public static boolean contains(Node start, Object obj)
     {
         // ...
+
+        if (start == null) {
+            System.out.println("doesn't contain the object");
+            return false; 
+        } else {
+            //return contains(obj);
+            return contains(start.next, obj);
+        }
+
     }
 
     /**

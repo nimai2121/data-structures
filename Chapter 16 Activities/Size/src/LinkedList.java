@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class LinkedList
 {
     private Node first;
+    //private 
 
     /**
         Constructs an empty linked list.
@@ -24,7 +25,16 @@ public class LinkedList
     */
     public int size()
     {
-        . . .
+        //. . .
+        int count = 0;
+        ListIterator iterator = listIterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        return count;
+
     }
 
     /**
