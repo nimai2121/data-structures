@@ -23,9 +23,9 @@ public class LinkedListQueue
     */
     public void firstToLast()
     {
-        . . .
-
-
+        // . . .
+        Object n = this.remove(); //removes the head and stores it in an object
+        this.add(n); //adds it to the tail.
 
     }
 
