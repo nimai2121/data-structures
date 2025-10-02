@@ -7,6 +7,7 @@ public class LinkedListQueue
 {
     private Node head;
     private Node tail;
+    private int size;
 
     /**
         Constructs an empty queue.
@@ -15,6 +16,7 @@ public class LinkedListQueue
     {
         head = null;
         tail = null;
+       // size = 0;
     }
 
     /**
@@ -22,7 +24,14 @@ public class LinkedListQueue
     */
     public void lastToFirst()
     {
-        . . .
+        //. . .
+
+        for (int i = 0; i < 5; i++) {
+            Object n = this.remove();
+            add(n);
+        }
+
+        
 
 
 
@@ -52,6 +61,7 @@ public class LinkedListQueue
             newNode.next = null;
             tail = newNode;
             head = newNode;
+            //size++;
         }
         else
         {
@@ -60,6 +70,7 @@ public class LinkedListQueue
             newNode.next = null;
             tail.next = newNode;
             tail = newNode;
+            //size++;
         }
     }
 
