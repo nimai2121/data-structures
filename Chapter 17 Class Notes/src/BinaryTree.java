@@ -4,13 +4,14 @@
 public class BinaryTree
 {
     private Node root;
+    //public Object data;
 
     /**
         Constructs an empty tree.
     */
     public BinaryTree()
     {
-         
+         root = null;
     } 
 
     /**
@@ -19,7 +20,10 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData) 
     {
-        
+        this.root = new Node();
+        this.root.data = rootData;
+        this.root.left = null;
+        this.root.right = null;
     }
 
     /**
@@ -30,12 +34,18 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData, BinaryTree left, BinaryTree right)
     {
+        this(rootData); //gets the data from the other constructor.
+        this.root.left = left.root;
+        this.root.right = right.root;
         
     }
     
     static class Node
     {
-        
+        public Object data;
+        public Node left; 
+        public Node right;
+
     }
 
     /**
@@ -45,7 +55,14 @@ public class BinaryTree
     */
     private static int height(Node n)
     {
-        return 0;
+        if (n == null) {
+            return 0;
+        } else {
+            return 1 + Math.max(BinaryTree.height(n.left), BinaryTree.height(n.right)); //the current node + the height of the larger side, which is the height of the whole tree. 
+        } 
+
+        
+
     }
 
     /**
@@ -54,7 +71,7 @@ public class BinaryTree
     */
     public int height()
     {
-        return 0;
+        return BinaryTree.height(this.root);
     }
 
     /**
@@ -63,7 +80,8 @@ public class BinaryTree
     */
     public boolean isEmpty()
     {
-         return false;
+        
+        return false;
     }
 
     /**
@@ -81,7 +99,10 @@ public class BinaryTree
     */
     public BinaryTree left() 
     { 
-        return null;
+        BinaryTree subtree = new BinaryTree();
+        subtree.root = this.root.left;
+        return subtree;
+        // return this.root.left <--- root.left is a Node, not a BinaryTree
     }
 
     /**
@@ -90,6 +111,9 @@ public class BinaryTree
     */
     public BinaryTree right() 
     { 
-        return null;
+        BinaryTree subtree = new BinaryTree();
+        subtree.root = this.root.right;
+        return subtree;
+        // return this.root.right <--- root.right is a Node, not a BinaryTree
     }
 }
