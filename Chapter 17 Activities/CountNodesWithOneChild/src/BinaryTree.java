@@ -102,4 +102,33 @@ public class BinaryTree
         result.root = root.right;
         return result;
     }
+
+    public int countNodesWithOneChild() {
+        int counter = 0; //for each loop with nodes in a binary tree
+        
+        if (this.root.left != null || this.root.right != null) {
+            if (this.root.right != null && this.root.left == null) 
+                counter++;
+            else if (this.root.left != null && this.root.right == null)
+                counter++;
+        }
+       
+        if (this.root.left != null) {
+            BinaryTree leftTree = new BinaryTree(this.root.left);
+            int var = leftTree.height() + 1;
+            if (var == 2) {
+                counter++;
+            }
+        } 
+        if (this.root.right != null) {
+            BinaryTree rightTree = new BinaryTree(this.root.right);
+            int var2 = rightTree.height() + 1;
+            if (var2 == 2) {
+                counter++;
+            }
+        }
+
+            return counter;
+    }
+
 }
