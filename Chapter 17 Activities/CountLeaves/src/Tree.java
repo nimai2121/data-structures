@@ -65,6 +65,8 @@ public class Tree
 
     // Additional methods will be added in later sections.
 
+
+    
     public int leafCount() {
         int counter = 0;
         
@@ -74,6 +76,10 @@ public class Tree
                 //return this.leafCount();
             }
         }
-        return counter;
+        return counter-1; 
+        // count the amount of leaves in the tree. 
+
+
+
     }
 }
