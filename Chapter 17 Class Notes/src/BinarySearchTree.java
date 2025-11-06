@@ -65,6 +65,7 @@ public class BinarySearchTree
     {
         Node toBeRemoved = this.root;
         boolean found = false;
+        Node parent = null;
 
         while (!found && toBeRemoved != null) {
             int diff = obj.compareTo(toBeRemoved.data);
@@ -80,6 +81,45 @@ public class BinarySearchTree
         if (!found) {
             return;
         }
+
+        // case1 and case2 (at least one child is null)
+        if(toBeRemoved.left == null || toBeRemoved.right == null) {
+            Node newChild;
+
+            if (toBeRemoved.left == null) {
+                newChild = toBeRemoved.right;
+            } else {
+                newChild = toBeRemoved.left;
+            }
+
+            if (parent == null) {
+                this.root = newChild; 
+            } else {
+                parent.right = newChild;
+            }
+
+            return;
+        }
+
+            //case 3: remove a node with two children
+
+            //find the least element of the right subtree
+            //the least element will replace the removed code.
+            Node leastParent = toBeRemoved;
+            Node least = toBeRemoved.right; 
+            while(least.left != null) {
+                leastParent = least;
+                least = least.left;
+            }
+
+            //move the data to the node being removed.
+            toBeRemoved.data = least.data; 
+
+            //unlink the least child 
+            if (leastParent == toBeRemoved) {
+                leastParent.right = least.right;
+            }
+
     }
     
     /**
@@ -87,7 +127,7 @@ public class BinarySearchTree
     */
     public void print()
     {   
-        
+        print();
     }   
 
     /**
@@ -96,7 +136,12 @@ public class BinarySearchTree
     */
     private static void print(Node parent)
     {   
+        if (parent == null)
+            return;
         
+        print(parent.left);
+        System.out.println(parent.data);
+        print(parent.right);
     }
 
     /**
