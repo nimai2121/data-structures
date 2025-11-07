@@ -65,4 +65,37 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+
+    public void depthFirst(Visitor v){
+        depthFirst(this.root, v);
+    }
+
+    private boolean depthFirst(Node node, Visitor v){
+        if (node == null) 
+            return true;
+        if (!v.visit(node.data)) 
+            return false;
+        for (Node child : node.children){
+            if (!depthFirst(child, v)) 
+                return false;
+        }
+        return true;
+    }
+
+    // postorder method
+
+    public void postorder(Visitor v){
+        postorder(this.root, v);
+    }
+
+    private void postorder(Node node, Visitor v){
+        if (node == null) 
+            return;
+        for (Node child : node.children){
+            postorder(child, v);
+        }
+        v.visit(node.data);
+    }
+
+
 }
