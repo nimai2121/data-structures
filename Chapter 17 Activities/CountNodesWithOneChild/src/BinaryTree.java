@@ -104,23 +104,23 @@ public class BinaryTree
     }
 
     public int countNodesWithOneChild() {
-        int counter = 0; //for each loop with nodes in a binary tree
+        int counter = 0; //counts nodes with one child
         
-        if (this.root.left != null || this.root.right != null) {
-            if (this.root.right != null && this.root.left == null) 
-                counter++;
-            else if (this.root.left != null && this.root.right == null)
+        if (this.root.left != null || this.root.right != null) {  //if either are null
+            if (this.root.right != null && this.root.left == null)  //if left is null but not right
+                counter++; 
+            else if (this.root.left != null && this.root.right == null) //vice versa
                 counter++;
         }
        
-        if (this.root.left != null) {
+        if (this.root.left != null) { //checks left subtree
             BinaryTree leftTree = new BinaryTree(this.root.left);
             int var = leftTree.height() + 1;
             if (var == 2) {
                 counter++;
             }
         } 
-        if (this.root.right != null) {
+        if (this.root.right != null) { //checks right subtree
             BinaryTree rightTree = new BinaryTree(this.root.right);
             int var2 = rightTree.height() + 1;
             if (var2 == 2) {
