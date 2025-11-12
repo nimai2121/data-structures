@@ -1,7 +1,7 @@
 public class FloodFillTester
 {
     public static void main(String[] args)
-    {
+    { 
         Grid gr = new Grid();
         gr.floodfill(3, 4);
         String[] rows = gr.toString().split("\n");

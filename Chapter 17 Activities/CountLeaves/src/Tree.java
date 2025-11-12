@@ -68,18 +68,20 @@ public class Tree
 
     
     public int leafCount() {
-        int counter = 0;
-        
-        for (int i = 0; i < this.size(); i++) {
-            if (root != null) {
-                counter++;
-                //return this.leafCount();
-            }
+        return leafCount(root);
+    }
+
+    private int leafCount(Node node) {
+        if (node == null) {
+            return 0;
         }
-        return counter-1; 
-        // count the amount of leaves in the tree. 
-
-
-
+        if (node.children.isEmpty()) {
+            return 1;
+        }
+        int count = 0;
+        for (Node child : node.children) {
+            count += leafCount(child);
+        }
+        return count;
     }
 }
